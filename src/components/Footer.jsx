@@ -9,7 +9,7 @@ const Footer = () => {
         <Row className="align-items-center py-5">
           {/* Brand & Rights */}
           <Col md={4} className="text-center text-md-start mb-4 mb-md-0">
-            <h4 className="footer-logo">PRINCE<span>SINGH</span></h4>
+            <h4 className="footer-logo">PRINCE<span>SINGH</span> <span style={{ fontSize: "0.75em", opacity: 0.65, fontWeight: "500" }}>(Royal Singh)</span></h4>
             <p className="copyright-text">
               © {new Date().getFullYear()} All Rights Reserved.
             </p>
@@ -27,13 +27,13 @@ const Footer = () => {
           {/* Social Links with Glow Effect */}
           <Col md={4} className="text-center text-md-end">
             <div className="social-wrapper">
-              <a href="https://github.com/royalprincesingh" target="_blank" rel="noopener noreferrer" className="social-icon github">
+              <a href="https://github.com/royalprincesingh" target="_blank" rel="noopener noreferrer" className="social-icon github" aria-label="GitHub Profile">
                 <i className="bi bi-github"></i>
               </a>
-              <a href="https://linkedin.com/in/royaliprincesingh" target="_blank" rel="noopener noreferrer" className="social-icon linkedin">
+              <a href="https://linkedin.com/in/royalprincesingh" target="_blank" rel="noopener noreferrer" className="social-icon linkedin" aria-label="LinkedIn Profile">
                 <i className="bi bi-linkedin"></i>
               </a>
-              <a href="https://instagram.com/mr.royal_singh_prince" target="_blank" rel="noopener noreferrer" className="social-icon instagram">
+              <a href="https://instagram.com/mr.royal_singh_prince" target="_blank" rel="noopener noreferrer" className="social-icon instagram" aria-label="Instagram Profile">
                 <i className="bi bi-instagram"></i>
               </a>
             </div>

@@ -201,12 +201,12 @@ const Contact = () => {
                 <i className="bi bi-github"></i>
               </a>
               <a
-                href="/princesinghresume.pdf"
-                download="Prince_Singh_Resume.pdf"
-                className="btn btn-info rounded-pill px-4"
+                href="/Royal_Prince_Singh_Resume.pdf"
+                download="Royal_Prince_Singh_Resume.pdf"
+                className="btn btn-info rounded-pill px-4 text-white fw-semibold d-inline-flex align-items-center"
                 style={{ fontWeight: "600" }}
               >
-                📄 Download Resume
+                <i className="bi bi-file-earmark-pdf-fill me-2"></i>Download Resume
               </a>
             </div>
           </div>
@@ -233,7 +233,9 @@ const Contact = () => {
                     <div className="form-floating mb-3">
                       <input
                         type="text"
+                        id="name"
                         name="name"
+                        autoComplete="name"
                         value={formData.name}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -251,7 +253,7 @@ const Contact = () => {
                       <label htmlFor="name" className="text-secondary">Your Name</label>
                       {errors.name && touched.name && (
                         <small className="text-danger d-block mt-1" style={{ animation: 'fadeIn 0.3s ease-out' }}>
-                          ✗ {errors.name}
+                          <i className="bi bi-exclamation-circle-fill me-1"></i>{errors.name}
                         </small>
                       )}
                     </div>
@@ -261,7 +263,9 @@ const Contact = () => {
                     <div className="form-floating mb-3">
                       <input
                         type="email"
+                        id="email"
                         name="email"
+                        autoComplete="email"
                         value={formData.email}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -279,7 +283,7 @@ const Contact = () => {
                       <label htmlFor="email" className="text-secondary">Your Email</label>
                       {errors.email && touched.email && (
                         <small className="text-danger d-block mt-1" style={{ animation: 'fadeIn 0.3s ease-out' }}>
-                          ✗ {errors.email}
+                          <i className="bi bi-exclamation-circle-fill me-1"></i>{errors.email}
                         </small>
                       )}
                     </div>
@@ -288,6 +292,7 @@ const Contact = () => {
                   <div className="col-12">
                     <div className="form-floating mb-3">
                       <textarea
+                        id="msg"
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
@@ -317,7 +322,7 @@ const Contact = () => {
                       </div>
                       {errors.message && touched.message && (
                         <small className="text-danger d-block mt-1" style={{ animation: 'fadeIn 0.3s ease-out' }}>
-                          ✗ {errors.message}
+                          <i className="bi bi-exclamation-circle-fill me-1"></i>{errors.message}
                         </small>
                       )}
                     </div>

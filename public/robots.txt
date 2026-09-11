@@ -2,9 +2,8 @@ User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /private
-Disallow: /*.json$
 
-# Specific rules for different crawlers
+# Explicit bot directives
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 0
@@ -13,5 +12,19 @@ User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
-# Sitemap reference
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Sitemaps
+Sitemap: https://softprince.dev/sitemap.xml
 Sitemap: https://royal-singh-portfolio.web.app/sitemap.xml
+Sitemap: https://princeportfolio.github.io/sitemap.xml

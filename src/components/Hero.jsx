@@ -44,9 +44,9 @@ const Hero = () => {
               <div className="photo-glow-effect"></div>
               <img 
                 src="/royal-singh.png" 
-                alt="Royal Singh"
+                alt="Prince Singh (Royal Singh) - Flutter Developer & Full Stack Engineer"
                 className="profile-photo shadow-lg"
-                onError={(e) => { e.target.src = "https://via.placeholder.com/300/12121a/00d2ff?text=RS"; }}
+                onError={(e) => { e.target.src = "https://via.placeholder.com/300/12121a/00d2ff?text=PS"; }}
               />
             </div>
           </div>
@@ -58,15 +58,18 @@ const Hero = () => {
             </div>
             
             <h1 className="hero-title">
-              ROYAL <span className="last-name">SINGH</span>
+              PRINCE <span className="last-name">SINGH</span>
+              <span className="hero-alias d-block" style={{ fontSize: "1.25rem", letterSpacing: "2.5px", fontWeight: "600", color: "var(--accent-1)", marginTop: "6px", textTransform: "uppercase" }}>
+                (Royal Singh)
+              </span>
             </h1>
             
             <h2 className="hero-subtitle mb-4">
-              Full Stack Developer <span className="separator">|</span> AI/ML & Computer Vision Specialist
+              Flutter Developer &amp; Full Stack Software Engineer <span className="separator">|</span> AI/ML Specialist
             </h2>
             
             <p className="hero-description mb-5">
-              Building scalable web applications and intelligent AI systems. Creator of <strong>Proctor AI</strong>—an intelligent proctoring system, and <strong>TrueSight AI</strong>—advanced computer vision platform. Specialized in MERN Stack, Machine Learning, and IoT Solutions.
+              Hi, I'm <strong>Prince Singh</strong> (also known as <strong>Royal Singh</strong>), a passionate <strong>Flutter Developer</strong> and <strong>Full Stack Software Engineer</strong>. I specialize in building cross-platform mobile apps with Flutter &amp; Dart, scalable full-stack web platforms with MERN stack, and intelligent AI systems like <strong>Proctor AI</strong> and <strong>TrueSight AI</strong>.
             </p>
 
             <div className="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">

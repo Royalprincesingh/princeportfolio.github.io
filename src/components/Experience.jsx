@@ -78,7 +78,7 @@ const Experience = () => {
                         {exp.duration}
                       </div>
                       <div style={{ color: "var(--text-secondary)", fontSize: "0.9rem" }}>
-                        📍 {exp.location}
+                        <i className="bi bi-geo-alt-fill me-1" style={{ color: "var(--accent-1)" }}></i>{exp.location}
                       </div>
                     </div>
                   </div>
@@ -130,7 +130,7 @@ const Experience = () => {
                     border: "1px solid var(--border-color)"
                   }}>
                     <small style={{ color: "var(--accent-1)", fontWeight: "600" }}>
-                      🎯 Training Focus: {exp.type}
+                      <i className="bi bi-bullseye me-1"></i>Training Focus: {exp.type}
                     </small>
                   </div>
                 </div>

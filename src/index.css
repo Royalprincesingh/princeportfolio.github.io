@@ -335,10 +335,17 @@ section:nth-child(even) {
     padding: 2rem 0;
   }
 
+  /* Do not force 100% width on all buttons globally; only specific block buttons */
+  button.w-mobile-100 {
+    width: 100%;
+  }
   button {
     padding: 0.6rem 1.2rem;
     font-size: 0.95rem;
-    width: 100%;
+  }
+
+  .floating-cv-btn {
+    display: none !important;
   }
 }
 

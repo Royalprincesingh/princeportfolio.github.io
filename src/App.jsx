@@ -2,14 +2,17 @@ import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Navbar from "./components/Navbar";
-import About from "./components/About";
 import Hero from "./components/Hero";
-import Skills from "./components/Skills";
+import MouseTrail from "./components/MouseTrail";
+import StatsSection from "./components/StatsSection";
+import EnhancedSkills from "./components/EnhancedSkills";
 import Experience from "./components/Experience";
-import Projects from "./components/Projects";
+import Achievements from "./components/Achievements";
+import EnhancedProjects from "./components/EnhancedProjects";
 import Resume from "./components/Resume";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import AIBot from "./components/AIBot";
 import "./index.css";
 
 function App() {
@@ -28,125 +31,62 @@ function App() {
 
   return (
     <div className="portfolio-wrapper bg-dark text-light">
+      <MouseTrail />
       <div className="glow-bg"></div>
 
-      {/* Floating Download CV Button */}
+      {/* Floating Quick Action: Download Resume (Desktop) */}
       <a
-        href="/princesinghresume.pdf"
-        download="Prince_Singh_Resume.pdf"
-        className="floating-cv-btn"
+        href="/Royal_Prince_Singh_Resume.pdf"
+        download="Royal_Prince_Singh_Resume.pdf"
+        className="floating-cv-btn align-items-center gap-2"
         style={{
           position: "fixed",
-          top: "50%",
-          right: "20px",
-          zIndex: 1000,
-          background: "linear-gradient(135deg, var(--accent-1), var(--accent-2))",
+          bottom: "30px",
+          left: "30px",
+          zIndex: 999,
+          background: "rgba(18, 18, 26, 0.85)",
+          border: "1px solid rgba(0, 210, 255, 0.4)",
+          backdropFilter: "blur(12px)",
           color: "var(--text-color)",
-          padding: "12px 20px",
-          borderRadius: "25px",
+          padding: "10px 20px",
+          borderRadius: "30px",
           textDecoration: "none",
           fontWeight: "600",
-          fontSize: "0.9rem",
-          boxShadow: "0 4px 20px rgba(0, 210, 255, 0.3)",
-          border: "none",
+          fontSize: "0.88rem",
+          boxShadow: "0 8px 25px rgba(0, 210, 255, 0.2)",
           cursor: "pointer",
-          transition: "all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-          transform: "translateY(-50%) rotate(-90deg)",
-          transformOrigin: "center",
-          writingMode: "vertical-rl",
-          textOrientation: "mixed"
+          transition: "all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)"
         }}
         onMouseEnter={(e) => {
-          e.target.style.transform = "translateY(-50%) rotate(-90deg) scale(1.05)";
-          e.target.style.boxShadow = "0 8px 30px rgba(0, 210, 255, 0.4)";
+          e.currentTarget.style.transform = "translateY(-3px)";
+          e.currentTarget.style.borderColor = "var(--accent-1)";
+          e.currentTarget.style.boxShadow = "0 12px 30px rgba(0, 210, 255, 0.4)";
+          e.currentTarget.style.background = "linear-gradient(135deg, rgba(0, 210, 255, 0.2), rgba(146, 95, 240, 0.2))";
         }}
         onMouseLeave={(e) => {
-          e.target.style.transform = "translateY(-50%) rotate(-90deg) scale(1)";
-          e.target.style.boxShadow = "0 4px 20px rgba(0, 210, 255, 0.3)";
+          e.currentTarget.style.transform = "translateY(0)";
+          e.currentTarget.style.borderColor = "rgba(0, 210, 255, 0.4)";
+          e.currentTarget.style.boxShadow = "0 8px 25px rgba(0, 210, 255, 0.2)";
+          e.currentTarget.style.background = "rgba(18, 18, 26, 0.85)";
         }}
       >
-        📄 Download CV
+        <i className="bi bi-file-earmark-pdf-fill" style={{ color: "var(--accent-1)", fontSize: "1rem" }}></i>
+        <span>Download CV</span>
       </a>
 
       <Navbar onResumeClick={handleShowResume} />
       <main className="main-content">
         <Hero />
+        <StatsSection />
         <Experience />
-        <Skills />
-
-        {/* Certifications Marquee */}
-        <section className="py-4" data-aos="fade-up">
-          <div className="container">
-            <h4 className="text-center mb-4" style={{ color: "var(--text-color)" }}>
-              🏆 Professional Certifications
-            </h4>
-            <div className="certifications-marquee" style={{
-              overflow: "hidden",
-              backgroundColor: "var(--card-bg)",
-              border: "1px solid var(--border-color)",
-              borderRadius: "10px",
-              padding: "1rem",
-              position: "relative"
-            }}>
-              <div className="marquee-content" style={{
-                display: "flex",
-                animation: "scroll 20s linear infinite"
-              }}>
-                {[
-                  { name: "Oracle Cloud Infrastructure Generative AI Professional", icon: "☁️", color: "#ed8b00" },
-                  { name: "Microsoft Certified: Azure AI Engineer Associate", icon: "🔷", color: "#0078d4" },
-                  { name: "Oracle Cloud Infrastructure Generative AI Professional", icon: "☁️", color: "#ed8b00" },
-                  { name: "Microsoft Certified: Azure AI Engineer Associate", icon: "🔷", color: "#0078d4" },
-                  { name: "Oracle Cloud Infrastructure Generative AI Professional", icon: "☁️", color: "#ed8b00" },
-                  { name: "Microsoft Certified: Azure AI Engineer Associate", icon: "🔷", color: "#0078d4" }
-                ].map((cert, index) => (
-                  <div
-                    key={index}
-                    data-aos="zoom-in"
-                    data-aos-delay={index * 200}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "10px",
-                      padding: "0 2rem",
-                      whiteSpace: "nowrap",
-                      color: cert.color,
-                      fontSize: "0.95rem",
-                      fontWeight: "600",
-                      transition: "all 0.3s ease"
-                    }}
-                  >
-                    <span style={{ fontSize: "1.2rem" }}>{cert.icon}</span>
-                    <span>{cert.name}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <style>{`
-            @keyframes scroll {
-              0% { transform: translateX(100%); }
-              100% { transform: translateX(-100%); }
-            }
-
-            .certifications-marquee:hover .marquee-content {
-              animation-play-state: paused;
-            }
-
-            @media (max-width: 768px) {
-              .marquee-content {
-                font-size: 0.8rem;
-              }
-            }
-          `}</style>
-        </section>
-
-        <Projects />
+        <Achievements />
+        <EnhancedSkills />
+        <EnhancedProjects />
         <Contact />
       </main>
       <Footer />
       <Resume show={showResume} handleClose={handleCloseResume} />
+      <AIBot />
     </div>
   );
 }

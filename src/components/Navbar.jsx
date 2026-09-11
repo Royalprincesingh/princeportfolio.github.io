@@ -6,66 +6,116 @@ const Navbar = ({ onResumeClick }) => {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark sticky-top" style={{
-      background: "rgba(8, 8, 12, 0.8)",
+      background: "rgba(8, 8, 12, 0.95)",
       backdropFilter: "blur(15px)",
-      borderBottom: "1px solid var(--border-color)"
+      borderBottom: "1px solid var(--border-color)",
+      padding: "0.8rem 0"
     }}>
-      <div className="container">
-        <a href="#home" className="navbar-brand fw-bold d-flex align-items-center" style={{ color: "var(--text-color)" }}>
+      <div className="container-fluid px-3 px-lg-4">
+        {/* Logo */}
+        <a href="#home" className="navbar-brand fw-bold d-flex align-items-center me-auto" style={{ color: "var(--text-color)", whiteSpace: "nowrap" }}>
           <img
             src={profileImg}
-            alt="Prince Singh"
+            alt="Royal Prince Singh"
             className="rounded-circle me-2"
             style={{
-              width: "35px",
-              height: "35px",
+              width: "36px",
+              height: "36px",
               objectFit: "cover",
               border: "2px solid var(--accent-1)"
             }}
           />
-          Prince Singh
+          <span style={{ fontSize: "1rem", fontWeight: "700", letterSpacing: "0.5px" }}>
+            Prince <span style={{ color: "var(--accent-1)" }}>Singh</span> <span className="d-none d-sm-inline" style={{ fontSize: "0.82em", opacity: 0.75, fontWeight: "500" }}>(Royal)</span>
+          </span>
         </a>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Toggle Button */}
         <button 
-          className="d-none d-md-block" 
+          className="navbar-toggler d-lg-none" 
+          type="button"
+          aria-label="Toggle navigation menu"
           onClick={() => setIsOpen(!isOpen)}
           style={{
-            background: "transparent",
-            border: "none",
-            color: "#f1f5f9",
-            fontSize: "1.5rem",
-            cursor: "pointer",
-            padding: 0
+            border: "1.5px solid var(--accent-1)",
+            background: "rgba(0, 210, 255, 0.08)",
+            padding: "0.3rem 0.65rem",
+            borderRadius: "8px",
+            width: "auto",
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            boxShadow: "none"
           }}
         >
-          ☰
+          <span style={{ color: "var(--accent-1)", fontSize: "1.25rem", lineHeight: 1, display: "inline-flex", alignItems: "center" }}>
+            {isOpen ? <i className="bi bi-x-lg"></i> : <i className="bi bi-list fs-5"></i>}
+          </span>
         </button>
 
-        <div className="collapse navbar-collapse justify-content-end">
-          <ul className="navbar-nav">
-            <li className="nav-item"><a className="nav-link" href="#experience" style={{ color: "var(--text-secondary)", transition: "color 0.3s" }} onMouseEnter={(e) => e.target.style.color = "var(--accent-1)"} onMouseLeave={(e) => e.target.style.color = "var(--text-secondary)"}>Experience</a></li>
-            <li className="nav-item"><a className="nav-link" href="#skills" style={{ color: "var(--text-secondary)", transition: "color 0.3s" }} onMouseEnter={(e) => e.target.style.color = "var(--accent-1)"} onMouseLeave={(e) => e.target.style.color = "var(--text-secondary)"}>Skills</a></li>
-            <li className="nav-item"><a className="nav-link" href="#projects" style={{ color: "var(--text-secondary)", transition: "color 0.3s" }} onMouseEnter={(e) => e.target.style.color = "var(--accent-1)"} onMouseLeave={(e) => e.target.style.color = "var(--text-secondary)"}>Projects</a></li>
+        {/* Navigation Links */}
+        <div 
+          className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}
+          style={{
+            transition: "all 0.3s ease"
+          }}
+        >
+          <ul className="navbar-nav ms-auto gap-2 align-items-lg-center">
+            <li className="nav-item">
+              <a 
+                className="nav-link" 
+                href="#experience"
+                onClick={() => setIsOpen(false)}
+                style={{ color: "var(--text-secondary)" }}
+              >
+                Experience
+              </a>
+            </li>
+            <li className="nav-item">
+              <a 
+                className="nav-link" 
+                href="#achievements"
+                onClick={() => setIsOpen(false)}
+                style={{ color: "var(--text-secondary)" }}
+              >
+                Achievements
+              </a>
+            </li>
+            <li className="nav-item">
+              <a 
+                className="nav-link" 
+                href="#skills"
+                onClick={() => setIsOpen(false)}
+                style={{ color: "var(--text-secondary)" }}
+              >
+                Skills
+              </a>
+            </li>
+            <li className="nav-item">
+              <a 
+                className="nav-link" 
+                href="#projects"
+                onClick={() => setIsOpen(false)}
+                style={{ color: "var(--text-secondary)" }}
+              >
+                Projects
+              </a>
+            </li>
             <li className="nav-item">
               <button
-                onClick={onResumeClick}
-                className="btn btn-outline-info ms-lg-3 px-4 rounded-pill"
+                onClick={() => {
+                  onResumeClick();
+                  setIsOpen(false);
+                }}
+                className="btn btn-sm px-3 rounded-pill mt-2 mt-lg-0"
                 style={{
                   background: "transparent",
                   border: "2px solid var(--accent-1)",
                   color: "var(--accent-1)",
                   transition: "all 0.3s ease",
-                  fontSize: "0.95rem",
-                  fontWeight: "600"
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.background = "var(--accent-1)";
-                  e.target.style.color = "var(--bg-color)";
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.background = "transparent";
-                  e.target.style.color = "var(--accent-1)";
+                  fontSize: "0.9rem",
+                  fontWeight: "600",
+                  width: "100%"
                 }}
               >
                 Resume
